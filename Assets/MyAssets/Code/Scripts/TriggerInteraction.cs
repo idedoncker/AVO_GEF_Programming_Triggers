@@ -5,12 +5,12 @@ using UnityEngine;
 public class TriggerInteraction : MonoBehaviour
 {
     [SerializeField] int damage = 10;
-    
+
     void OnTriggerEnter(Collider collider)
     {
-        if (collider.GetComponent<IDamage>() != null)
+        if (collider.gameObject != gameObject)
         {
-            collider.GetComponent<IDamage>().DoDamage(damage);
+            collider.GetComponent<IDamage>()?.DoDamage(damage);
         }
     }
 

@@ -8,17 +8,21 @@ public class WallHealth : MonoBehaviour, IDamage
 
     public int hitPoints { get; set; }
 
-    public void DoDamage(int damage) {
+    public void DoDamage(int damage)
+    {
         destroyedWall.SetActive(true);
         destroyedWall.transform.parent = null;
+        GameManager.instance.AddScore(20);
         Kill();
     }
 
-    public void OnMouseDown() {
+    public void OnMouseDown()
+    {
         DoDamage(0);
     }
 
-    private void Kill() {
+    private void Kill()
+    {
         Destroy(gameObject);
     }
 }
